@@ -14,7 +14,7 @@ namespace Lab_4_Dice_Rolling
     {
         static void Main(string[] args)
         {
-            // Starting the program and calling the first method needed for the dice rolling.
+            // Starting the program and calling the first method needed for the dic'e rolling.
             Console.Write("Welcome to the Grand Circus Casino!. ");
             int rolls = 0;
             GetContinue(rolls);
@@ -64,7 +64,7 @@ namespace Lab_4_Dice_Rolling
             else
             {
                 // The dice is finally rolled once a normal number is put in.
-                sides = int.Parse(sidesString);
+                sides = int.Parse(sidesString) + 1;
                 RollDice(sides, rolls);
             }
         }
@@ -76,15 +76,15 @@ namespace Lab_4_Dice_Rolling
 
             // This command is meant to seperate the two random numbers even if they have the same seed.
             Thread.Sleep(1000);
-            Random RandomGen2 = new System.Random();
+            Random RandomGen2 = new System.Random(DateTime.Now.Millisecond);
             int value1 = randomGen1.Next(1, sides);
             int value2 = randomGen1.Next(1, sides);
             rolls++;
             int total = value1 + value2;
             Console.WriteLine($"Roll {rolls}: \n{value1} \n{value2}");
 
-            // If the dice have 6 sides these will tell you if you have a special roll from the game craps
-            if (sides == 6)
+            // If the die have 6 sides these will tell you if you have a special roll from the game craps
+            if (sides == 7)
             {
                 if (value1 == 1 && value2 == 1)
                 {
